@@ -1,7 +1,7 @@
 # Frontend
 
 ## Vagrant Config
-
+Download link: https://www.vagrantup.com/downloads.html
 All Vagrant conf is in Vagrantfile. To install some dependencies we have used Ansible, and these dependencies are in the playbook.yml.
 With Vagrant I synced the `/frontend` folder in order to execute the Grunt inside Vagrant with this code. If you change some of this code in your local machine, Vagrant will recognize it.
 
