@@ -18,6 +18,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # Ansible provisioning
   config.vm.provision "ansible" do |ansible|
-    ansible.playbook = "frontend/playbook.yml"
+    ansible.playbook = "playbook.yml"
   end
 end
