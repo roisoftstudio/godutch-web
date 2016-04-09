@@ -14,7 +14,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
 
   # Synced folder
-  config.vm.synced_folder "./frontend", "/vagrant"
+  config.vm.synced_folder ".", "/vagrant"
 
   # Ansible provisioning
   config.vm.provision "ansible" do |ansible|
