@@ -3,5 +3,7 @@
 /.tmp
 /.sass-cache
 /bower_components
-/.vagrant
-/.idea
+.vagrant
+
+#IntelliJ IDEA
+.idea/
