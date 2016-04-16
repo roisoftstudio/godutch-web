@@ -7,11 +7,28 @@
  * # loginCtrl
  * Controller of the frontendApp
  */
-angular.module('frontendApp')
-  .controller('LoginCtrl', function ($scope) {
+angular
+  .module('frontendApp')
+  .controller('LoginCtrl', ['$scope', 'UserModel', function ($scope, $userModel) {
 
-      $scope.email = null;
-      $scope.password = null;
+    $scope.user = null;
 
+    $scope.doLogin = (function(user) {
 
-  });
+      $userModel.create(user.email, user.password);
+
+      if($userModel.isValid()) {
+        $userModel.save()
+          .then(function(result){
+            console.log('GOOD!');
+            console.log(result);
+          })
+          .catch(function(result){
+            console.log('ERROR');
+            console.log(result);
+          });
+      }
+
+    });
+
+  }]);

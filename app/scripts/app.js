@@ -17,6 +17,14 @@ angular
     'ngTouch',
     'ui.router'
   ])
+  .constant(
+    'cfg', {
+      'API_URL': 'http://127.0.0.1',
+      'API_PORT': '18080',
+      'URL' : function() { return this.API_URL + ':' + this.API_PORT; },
+      'SIGN': '/sign'
+    }
+  )
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
 
     $urlRouterProvider.otherwise('/');

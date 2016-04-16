@@ -2,28 +2,45 @@
 
 /**
  * @ngdoc function
- * @name frontendApp.controller:LoginCtrl
+ * @name frontendApp.service:UserModel
  * @description
- * # loginCtrl
- * Controller of the frontendApp
+ * # userModel
+ * Model of the frontendApp
  */
 angular
   .module('frontendApp')
-  .service('UserModel', function () {
+  .service('UserModel', ['$http', 'cfg', function ($http, $CONSTANTS) {
 
-    var $email, $password;
+    return {
 
-    var UserFactory = (function() {
+      $email: '',
+      $password: '',
 
-      $email = $password = null;
+      create: function(email, password) {
+        this.$email = email;
+        this.$password = password;
+      },
 
-    });
+      isValid: function() {
+        if(this.$email.length < 1) {
+          return false;
+        }
 
-    var UserFactory = (function (email, pass) {
+        if(this.$password.length < 1) {
+          return false;
+        }
 
-      $email = email;
-      $password = pass;
+        return true;
+      },
 
-    });
+      save: function() {
+        return $http({
+          url: $CONSTANTS.URL() + $CONSTANTS.SIGN,
+          method: 'POST',
+          params: {email: this.$email, password: this.$password}
+        });
+      }
 
-  });
+    };
+
+  }]);
