@@ -49,4 +49,19 @@
    - name: Install Compass
      become: yes
      command: bash -lc "gem install compass"
-#     gem: name=compass
+
+   - name: Install grunt-karma
+     become: yes
+     npm: name=grunt-karma global=yes
+
+   - name: Install karma
+     become: yes
+     npm: name=karma global=yes
+
+   - name: Install karma-jasmine
+     become: yes
+     npm: name=karma-jasmine global=yes
+
+   - name: Install karma-chrome-launcher
+     become: yes
+     npm: name=karma-chrome-launcher global=yes
