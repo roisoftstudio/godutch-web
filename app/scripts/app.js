@@ -22,7 +22,8 @@ angular
       'API_URL': 'http://127.0.0.1',
       'API_PORT': '18080',
       'URL' : function() { return this.API_URL + ':' + this.API_PORT; },
-      'SIGN': '/sign'
+      'SIGN': '/sign',
+      'SIGN_UP': '/sign/up'
     }
   )
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
