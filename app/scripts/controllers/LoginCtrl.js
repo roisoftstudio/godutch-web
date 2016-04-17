@@ -13,7 +13,7 @@ angular
 
     $scope.user = null;
 
-    $scope.doLogin = (function(user) {
+    $scope.signUp = (function(user) {
 
       $userModel.create(user.email, user.password);
 

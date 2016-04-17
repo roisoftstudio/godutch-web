@@ -11,6 +11,11 @@ angular
   .module('frontendApp')
   .service('UserModel', ['$http', 'cfg', function ($http, $CONSTANTS) {
 
+    var $headers = {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+    };
+
     return {
 
       $email: '',
@@ -35,9 +40,10 @@ angular
 
       save: function() {
         return $http({
-          url: $CONSTANTS.URL() + $CONSTANTS.SIGN,
-          method: 'POST',
-          params: {email: this.$email, password: this.$password}
+          url: $CONSTANTS.URL() + $CONSTANTS.SIGN_UP,
+          method: 'PUT',
+          headers: $headers,
+          data: {email: this.$email, password: this.$password}
         });
       }
 
