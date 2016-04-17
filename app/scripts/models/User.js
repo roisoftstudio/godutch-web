@@ -38,10 +38,19 @@ angular
         return true;
       },
 
-      save: function() {
+      signUp: function() {
         return $http({
           url: $CONSTANTS.URL() + $CONSTANTS.SIGN_UP,
           method: 'PUT',
+          headers: $headers,
+          data: {email: this.$email, password: this.$password}
+        });
+      },
+
+      signIn: function() {
+        return $http({
+          url: $CONSTANTS.URL() + $CONSTANTS.SIGN_IN,
+          method: 'POST',
           headers: $headers,
           data: {email: this.$email, password: this.$password}
         });

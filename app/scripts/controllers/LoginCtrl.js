@@ -9,7 +9,7 @@
  */
 angular
   .module('frontendApp')
-  .controller('LoginCtrl', ['$scope', 'UserModel', function ($scope, $userModel) {
+  .controller('LoginCtrl', ['$scope', '$state', 'UserModel', function ($scope, $state, $userModel) {
 
     $scope.user = null;
 
@@ -18,17 +18,41 @@ angular
       $userModel.create(user.email, user.password);
 
       if($userModel.isValid()) {
-        $userModel.save()
+        $userModel.signUp()
           .then(function(result){
-            console.log('GOOD!');
+            // TODO: show a message to the user (toastr)
             console.log(result);
+            alert("USER CREATED!");
+            $state.go('user.login');
           })
           .catch(function(result){
+            // TODO: show a message to the user (toastr)
+            alert("ERROR (see console)!");
             console.log('ERROR');
             console.log(result);
           });
       }
 
+    });
+
+    $scope.signIn = (function(user) {
+
+      $userModel.create(user.email, user.password);
+
+      if($userModel.isValid()) {
+        $userModel.signIn()
+          .then(function(result){
+            // TODO: show a message to the user (toastr)
+            alert('LOGED!');
+            console.log(result);
+          })
+          .catch(function(result){
+            // TODO: show a message to the user (toastr)
+            alert("ERROR (see console)!");
+            console.log('ERROR');
+            console.log(result);
+          });
+        }
     });
 
   }]);

@@ -23,7 +23,8 @@ angular
       'API_PORT': '18080',
       'URL' : function() { return this.API_URL + ':' + this.API_PORT; },
       'SIGN': '/sign',
-      'SIGN_UP': '/sign/up'
+      'SIGN_UP': '/sign/up',
+      'SIGN_IN': '/sign/in'
     }
   )
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
